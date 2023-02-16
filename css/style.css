@@ -1,0 +1,321 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.grid-container-index{
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    background: url(../assets/pexels-lukas-1419936.jpg); 
+    background-size: 100dvi;
+    background-repeat: no-repeat;
+}
+header{
+    grid-area: header;
+    background-color: transparent;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+header:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.header-index:hover{
+    background-color: transparent;
+}
+.bar-nav{
+    font-size: 20px;
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+.bar-nav li a{
+    text-decoration: none;
+    color: #38150B;
+    font-family: 'Niramit', sans-serif;
+}
+.bar-nav li a:hover{
+    color: black;
+    text-decoration: underline;
+}
+.logo a img{
+    height: 80px;
+}
+.logo-index a img{
+    width: auto;
+    height: 80px;
+    background-color: #C6B4A5;
+}
+.social-media{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    gap: 60px;
+}
+footer{
+    grid-area: footer;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+}
+footer:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.social-media li a img{
+    height: 35px;
+}
+.home-background{
+    grid-area: main;
+    display: flex;
+    padding: 30px;
+    flex-wrap: wrap;
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.home-title{
+    display: flex;
+    color: #38150B;
+    font-size: 100px;
+    flex-wrap: wrap;
+    font-family: 'Patua One', cursive;
+}
+.home-subtitle{
+    font-family: 'Arvo', serif;
+    font-size: 40px;
+    font-weight: lighter;
+    color: #38150B;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+}
+.home-shop-now{
+    width: 180px;
+    background-color: #38150B;
+    display: flex;
+    font-size: 30px;
+    border-radius: 10px;
+    color: #cacaca;
+    justify-content: center;
+    align-content: center;
+    text-decoration: none;
+    font-family: 'Niramit', sans-serif;
+}
+.grid-container-about{
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    height: 100%;
+    background-color:#C6B4A5;
+    background-repeat: no-repeat;
+}
+.about-main{
+    display: grid;
+    grid-template: 
+    "about-main about-us"
+    "about-photo about-photo";
+    background-color: #C6B4A5;
+    justify-self: center;
+    padding: 30px;
+    gap: 60px;
+}
+.about-main section{
+    grid-area: about-main;
+}
+.about-us{
+    grid-area: about-us;
+    font-size: 50px;
+    font-weight: lighter;
+    color: #38150B;
+    font-style: oblique;
+}
+.about-photo img{
+    grid-area: about-us;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+.about-text{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: justify;
+    padding-top: 30px;
+    font-size: 20px;
+    font-family: fantasy;
+    color: #38150B;
+}
+.shop-main{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+    "shop-title shop-title shop-title"
+    "shop-section shop-section shop-section";
+    justify-content: center;
+    padding: 30px;
+    gap: 60px;
+}
+.shop-title{
+    grid-area: shop-title;
+    font-size: 50px;
+    font-weight: lighter;
+    font-style: oblique;
+    color: #38150B;
+}
+.shop-section{
+    grid-area: shop-section;
+    display: grid;
+    grid-template-areas:
+    "shop-card shop-card shop-card"
+    "shop-card shop-card shop-card";
+    justify-content: space-around;
+}
+.shop-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.shop-card img{
+    width: 330px;
+}
+.shop-card p{
+    width: 330px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    color: #38150B;
+    font-family: fantasy;
+}
+.shop-button{
+    width: auto;
+    height: auto;
+    background-color: #38150B;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 25px;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 5px;
+}
+.grid-container-blog{
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    background: url(../assets/pexels-lukas-1419950.jpg); 
+    background-size: cover;
+    background-repeat: repeat;
+}
+.blog-main{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+    "shop-title shop-title shop-title"
+    "shop-section shop-section shop-section";
+    justify-content: center;
+    padding: 30px;
+    gap: 60px;
+}
+.blog-card{
+    background-color: #C6B4A5;
+    border-radius: 15px;
+    width: 370px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+}
+.blog-card img{
+    border-radius: 15px;
+    width: 330px;
+    height: auto;
+}
+.blog-card p{
+    width: 330px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    color: #38150B;
+    font-family: fantasy;
+    font-style: italic;
+}
+.shop-section article{
+    padding: 20px;
+    margin: 10px;
+}
+.blog-button{
+    display: flex;
+    width: auto;
+    height: auto;
+    background-color: #38150B;
+    justify-content: center;
+    align-content: center;
+    font-size: 15px;
+    font-family: fantasy;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 5px;
+    text-decoration: none;
+}
+.main-locations{
+    display: grid;
+    grid-template-areas:
+    "location-title" 
+    "location-section";
+    padding: 30px;
+    gap: 60px;
+}
+.locations-title{
+    grid-area: location-title;
+    font-size: 50px;
+    font-weight: lighter;
+    font-style: oblique;
+    color: #38150B;
+}
+.location-section{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.location-card{
+    background-color: #C6B4A5;
+    width: 550px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.maps{
+    width: 500px;
+    height: 500px;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+} 
