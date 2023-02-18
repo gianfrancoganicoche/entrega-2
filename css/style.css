@@ -3,16 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-.grid-container-index{
-    display: grid;
-    grid-template-areas:
-    "header"
-    "main"
-    "footer";
-    background: url(../assets/pexels-lukas-1419936.jpg); 
-    background-size: 100dvi;
-    background-repeat: no-repeat;
-}
 header{
     grid-area: header;
     background-color: transparent;
@@ -74,6 +64,18 @@ footer:hover{
 .social-media li a img{
     height: 35px;
 }
+.grid-container-index{
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    background: url(../assets/pexels-lukas-1419936.jpg);
+    background-size: 100dvi;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 .home-background{
     grid-area: main;
     display: flex;
@@ -92,6 +94,7 @@ footer:hover{
     font-family: 'Patua One', cursive;
 }
 .home-subtitle{
+    display: flex;
     font-family: 'Arvo', serif;
     font-size: 40px;
     font-weight: lighter;
@@ -117,38 +120,33 @@ footer:hover{
     "header"
     "main"
     "footer";
-    height: 100%;
     background-color:#C6B4A5;
-    background-repeat: no-repeat;
 }
 .about-main{
     display: grid;
-    grid-template: 
-    "about-main about-us"
-    "about-photo about-photo";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "about-section about-photo";
     background-color: #C6B4A5;
-    justify-self: center;
-    padding: 30px;
+    align-items: center;
+    padding: 60px 60px 30px 30px;
     gap: 60px;
 }
-.about-main section{
-    grid-area: about-main;
+.about-section{
+    grid-area: about-section;
+    width: 100%;
 }
 .about-us{
-    grid-area: about-us;
     font-size: 50px;
     font-weight: lighter;
     color: #38150B;
     font-style: oblique;
 }
 .about-photo img{
-    grid-area: about-us;
-    display: flex;
-    flex-wrap: nowrap;
+    grid-area: about-photo;
     width: 100%;
 }
 .about-text{
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     text-align: justify;
@@ -160,7 +158,7 @@ footer:hover{
 .shop-main{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-template-areas: 
+    grid-template-areas:
     "shop-title shop-title shop-title"
     "shop-section shop-section shop-section";
     justify-content: center;
@@ -221,14 +219,14 @@ footer:hover{
     "header"
     "main"
     "footer";
-    background: url(../assets/pexels-lukas-1419950.jpg); 
+    background: url(../assets/pexels-lukas-1419950.jpg);
     background-size: cover;
     background-repeat: repeat;
 }
 .blog-main{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-template-areas: 
+    grid-template-areas:
     "shop-title shop-title shop-title"
     "shop-section shop-section shop-section";
     justify-content: center;
@@ -281,7 +279,7 @@ footer:hover{
 .main-locations{
     display: grid;
     grid-template-areas:
-    "location-title" 
+    "location-title"
     "location-section";
     padding: 30px;
     gap: 60px;
@@ -318,4 +316,81 @@ footer:hover{
     align-content: center;
     display: flex;
     flex-direction: column;
+}
+/**
+tablet
+***/
+@media (max-width:768px){
+    .grid-container-index{
+        background: url(../assets/pexels-angela-roma-7319106.jpg);
+        justify-content:center;
+        backdrop-filter: blur(5px);
+        background-size: cover;
+        background-position: center;
+    }
+    .home-title{
+        font-family: 'Patua One', cursive;
+        color: #38150B;
+        justify-content: center;
+        font-size: 13vw;
+    }
+    .home-background{
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    .home-subtitle{
+        padding-bottom: 20px;
+        font-size: 6vw;
+    }
+    .home-shop-now{
+        width: 33vw;
+        background-color: #C6B4A5;
+        display: flex;
+        font-size: 6vw;
+        border-radius: 15px;
+        color: #38150B;
+    }
+    .about-main{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: 
+        "about-section"
+        "about-photo";
+        padding: 20px 40px 40px 40px;
+        gap: 40px;
+        align-items: flex-start;
+    }
+    .about-us{
+        font-size: 6vw;
+        text-align: center;
+    }
+    .about-text{
+        padding-top: 20px;
+        font-size: 2.5vw;
+    }
+}
+/**
+movil
+***/
+@media (max-width: 320px){
+    .grid-container-about{
+        background: url(../assets/pexels-angela-roma-7319106.jpg);
+        background-color: transparent;
+        justify-content:center;
+        backdrop-filter: blur(5px);
+        background-size: cover;
+        background-position: center;
+    }
+    .about-main{
+        background-color: transparent;
+    }
+    .about-us{
+        font-size: 40px;
+    }
+    .about-text{
+        font-size: 15px;
+        line-height: 22px;
+    }
 } 
