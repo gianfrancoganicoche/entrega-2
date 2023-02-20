@@ -5,36 +5,126 @@
 }
 header{
     grid-area: header;
-    background-color: transparent;
-    width: 100%;
-    height: 80px;
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
     justify-content: space-between;
-    padding: 30px;
+    padding: 20px;
 }
-header:hover{
-    background-color: rgba(255, 255, 255, 0.4);
+.noba{
+    font-weight: bolder;
 }
-.header-index:hover{
-    background-color: transparent;
+.container {
+    max-width: auto;
 }
-.bar-nav{
-    font-size: 20px;
+.navbar {
+    width: 140%;
+}
+.nav-container {
     display: flex;
-    list-style: none;
-    gap: 25px;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
 }
-.bar-nav li a{
+.navbar .nav-container li {
+    list-style: none;
+}
+.navbar .nav-container a {
     text-decoration: none;
     color: #38150B;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+}
+.navbar .nav-container a:hover{
+    font-weight: bolder;
+}
+.nav-container {
+    display: flex;
+    position: relative;
+    height: 60px;
+}
+.nav-container .checkbox {
+    position: absolute;
+    display: flex;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+}
+.nav-container .hamburger-lines {
+    display: block;
+    height: 26px;
+    width: 32px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.nav-container .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #0e2431;
+}
+.nav-container .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+}
+.nav-container .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+}
+.nav-container .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+}
+.navbar .menu-items {
+    padding-top: 25px;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 50%);
+    height: auto;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: row;
+    margin-left: -40px;
+    padding-right: 30px;
+    padding-left: 50px;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    gap: 30px;
+}
+.navbar .menu-items li {
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.navbar .menu-items li a{
     font-family: 'Niramit', sans-serif;
 }
-.bar-nav li a:hover{
-    color: black;
-    text-decoration: underline;
+.navbar .menu-items li a:hover{
+    font-weight: bolder;
+}
+/*Crea una cruz en el menu hamburguesa**/
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+}
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+}
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+}
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+}
+.nav-container input[type="checkbox"]:checked ~ .logo{
+    display: none;
 }
 .logo a img{
     height: 80px;
@@ -49,8 +139,7 @@ header:hover{
     list-style: none;
     justify-content: center;
     align-items: center;
-    padding: 15px;
-    gap: 60px;
+    gap: 50px;
 }
 footer{
     grid-area: footer;
@@ -71,7 +160,6 @@ footer:hover{
     "main"
     "footer";
     background: url(../assets/pexels-lukas-1419936.jpg);
-    background-size: 100dvi;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -121,11 +209,16 @@ footer:hover{
     "main"
     "footer";
     background-color:#C6B4A5;
+    background-size: 100dvi;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* padding-left: 30px; */
 }
 .about-main{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
     "about-section about-photo";
     background-color: #C6B4A5;
     align-items: center;
@@ -322,8 +415,7 @@ tablet
 ***/
 @media (max-width:768px){
     .grid-container-index{
-        background: url(../assets/pexels-angela-roma-7319106.jpg);
-        justify-content:center;
+        justify-content: center;
         backdrop-filter: blur(5px);
         background-size: cover;
         background-position: center;
@@ -355,7 +447,7 @@ tablet
     .about-main{
         grid-template-columns: auto;
         grid-template-rows: repeat(2, auto);
-        grid-template-areas: 
+        grid-template-areas:
         "about-section"
         "about-photo";
         padding: 20px 40px 40px 40px;
@@ -370,27 +462,75 @@ tablet
         padding-top: 20px;
         font-size: 2.5vw;
     }
+    .navbar .menu-items {
+        padding-top: 60px;
+        box-shadow: rgba(255, 255, 255, 100%);
+        height: auto;
+        transform: translate(-150%);
+        flex-direction: column;
+        margin-left: -40px;
+        padding-right: 30px;
+        padding-left: 50px;
+        transition: transform 0.5s ease-in-out;
+        text-align: left;
+        gap: 30px;
+    }
+    footer{
+        grid-area: footer;
+        display: flex;
+        padding: 30px;
+    }
+    .social-media{
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
+    .social-media li a img{
+        height: 30px;
+    }
 }
 /**
 movil
 ***/
-@media (max-width: 320px){
-    .grid-container-about{
-        background: url(../assets/pexels-angela-roma-7319106.jpg);
-        background-color: transparent;
-        justify-content:center;
+@media (max-width: 360px){
+    .grid-container-index{
+        background-position: -750px;
         backdrop-filter: blur(5px);
-        background-size: cover;
-        background-position: center;
+    }
+    .home-title{
+        font-family: 'Patua One', cursive;
+        color: #38150B;
+        justify-content: center;
+    }
+    .home-background{
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    .home-subtitle{
+        padding-bottom: 20px;
+    }
+    .home-shop-now{
+        background-color: #C6B4A5;
+        display: flex;
+        border-radius: 15px;
+        color: #38150B;
     }
     .about-main{
-        background-color: transparent;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+        "about-section"
+        "about-photo";
+        padding: 20px 40px 40px 40px;
+        gap: 40px;
+        align-items: flex-start;
     }
     .about-us{
-        font-size: 40px;
+        font-size: 50px;
     }
     .about-text{
         font-size: 15px;
-        line-height: 22px;
     }
-} 
+}
