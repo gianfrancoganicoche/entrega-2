@@ -9,6 +9,7 @@ header{
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    padding-left: 20px;
     flex-wrap: nowrap;
 }
 .container {
@@ -127,9 +128,6 @@ header{
 .nav-container input[type="checkbox"]:checked ~ .logo{
     display: none;
 }
-.logo a img{
-    height: 80px;
-}
 .logo-index a img{
     width: auto;
     height: 80px;
@@ -162,7 +160,7 @@ footer:hover{
     display: grid;
     grid-template-areas:
     "header"
-    "main"
+    "main-home"
     "footer";
     background: url(../assets/pexels-lukas-1419936.jpg);
     background-repeat: no-repeat;
@@ -170,7 +168,7 @@ footer:hover{
     background-position: center;
 }
 .home-background{
-    grid-area: main;
+    grid-area: main-home;
     display: flex;
     padding: 30px;
     flex-wrap: wrap;
@@ -211,12 +209,13 @@ footer:hover{
     display: grid;
     grid-template-areas:
     "header"
-    "main"
+    "about-main"
     "footer";
     background-color:#C6B4A5;
     padding: 0px 30px 0px 30px;
 }
 .about-main{
+    grid-area: about-main;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
@@ -230,8 +229,8 @@ footer:hover{
     grid-area: about-section;
     width: 100%;
 }
-.about-us{
-    font-size: 6vw;
+.title-page{
+    font-size: 4vw;
     font-weight: lighter;
     color: #38150B;
     font-family: 'Baloo Paaji 2', cursive;
@@ -250,11 +249,21 @@ footer:hover{
     color: #38150B;
     font-family: 'Lora', serif
 }
-.shop-main{
+.grid-container-shop{
+    display: grid;
+    grid-template-areas:
+    "header"
+    "shop-main"
+    "footer";
+    background-color:#C6B4A5;
+    padding: 0px 30px 0px 30px;
+}
+.main-shop{
+    grid-area: shop-main;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-areas:
-    "shop-title shop-title shop-title"
+    "title-page title-page title-page"
     "shop-section shop-section shop-section";
     justify-content: center;
     padding: 10px 30px 30px 30px;
@@ -305,58 +314,55 @@ footer:hover{
     display: grid;
     grid-template-areas:
     "header"
-    "main"
+    "blog-main"
     "footer";
     background: url(../assets/pexels-lukas-1419950.jpg);
     background-size: cover;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     padding: 0px 30px 0px 30px;
-
-}
-.blog-section{
-    grid-area: shop-section;
-    display: grid;
-    grid-template-areas:
-    "shop-card shop-card shop-card"
-    "shop-card shop-card shop-card";
-    flex-wrap: nowrap;
 }
 .blog-main{
+    grid-area: blog-main;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-areas:
-    "shop-title shop-title shop-title"
-    "shop-section shop-section shop-section";
+    "title-page title-page title-page"
+    "blog-section blog-section blog-section";
     justify-content: center;
-    padding: 10px 60px 30px 30px;
-    gap: 60px;
+    padding: 10px 30px 30px 30px;
+    width: 100%;
+}
+.blog-section{
+    grid-area: blog-section;
+    display: grid;
+    grid-template-areas:
+    "blog-card blog-card blog-card"
+    "blog-card blog-card blog-card";
+    flex-wrap: nowrap;
+    gap: 20px;
 }
 .blog-card{
-    background-color: #C6B4A5;
-    border-radius: 15px;
-    width: 370px;
-    height: auto;
     display: flex;
     flex-direction: column;
+    justify-self: center;
     text-align: justify;
-    justify-content: center;
     align-items: center;
+    background-color: #C6B4A5;
+    border-radius: 10px;
+    width: 90%;
+    gap: 20px;
+    padding: 20px;
 }
 .blog-card img{
-    border-radius: 15px;
     width: 90%;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 .blog-card p{
     width: 90%;
     padding-top: 10px;
-    font-size: 18px;
+    font-size: 1.3vw;
     color: #38150B;
     font-family: 'Lora', serif;
-}
-.shop-section article{
-    padding: 20px;
-    margin: 10px;
 }
 .blog-button{
     display: flex;
@@ -365,7 +371,7 @@ footer:hover{
     background-color: #38150B;
     justify-content: center;
     align-content: center;
-    font-size: 18px;
+    font-size: 1.3vw;
     font-family: 'Lora', serif;
     color: #ffffff;
     border-radius: 8px;
@@ -375,17 +381,9 @@ footer:hover{
 .main-locations{
     display: grid;
     grid-template-areas:
-    "location-title"
+    "title-page"
     "location-section";
-    padding: 30px;
-    gap: 60px;
-}
-.locations-title{
-    grid-area: location-title;
-    font-size: 50px;
-    font-weight: lighter;
-    font-style: oblique;
-    color: #38150B;
+    padding: 10px 30px 30px 30px;
 }
 .location-section{
     width: 100%;
@@ -418,17 +416,19 @@ tablet
 ***/
 @media (max-width:768px){
     .navbar .menu-items {
-        padding-top: 24px;
         background-color: #C6B4A5;
-        transform: translate(-150%);
         flex-direction: column;
         padding-left: 0px;
-        text-align: left;
+        text-align: center;
         gap: 5px;
     }
     .navbar .menu-items li a{
         font-family: 'Niramit', sans-serif;
         padding-left: 70px;
+    }
+    .logo-index a img{
+        height: 70px;
+        background-color: transparent;
     }
     footer{
         grid-area: footer;
@@ -444,10 +444,9 @@ tablet
         height: 30px;
     }
     .grid-container-home{
-        justify-content: center;
+        padding-right: 0px;
         backdrop-filter: blur(5px);
-        background-size: cover;
-        background-position: center;
+        padding: 0px;
     }
     .home-title{
         font-family: 'Patua One', cursive;
@@ -486,19 +485,22 @@ tablet
         gap: 40px;
         align-items: flex-start;
     }
-    .about-us{
-        font-size: 6vw;
+    .title-page{
+        font-size: 40px;
         text-align: center;
     }
     .about-text{
         padding-top: 20px;
-        font-size: 2.5vw;
+        font-size: 20px;
     }
-    .shop-main{
+    .grid-container-shop{
+        padding: 0px;
+    }
+    .main-shop{
         grid-template-columns: 100%;
         grid-template-rows: repeat(2,auto);
         grid-template-areas:
-        "shop-title"
+        "title-page"
         "shop-section";
         justify-content: center;
         padding: 0px;
@@ -512,13 +514,7 @@ tablet
         align-items: center;
     }
     .shop-card{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-bottom: 100px;
     }
     .shop-card img{
         width: 80%;
@@ -536,13 +532,69 @@ tablet
         padding: 8px;
         width: 80%;
     }
+    .grid-container-blog{
+        padding: 0px;
+    }
+    .blog-main{
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2,auto);
+        grid-template-areas:
+        "title-title"
+        "blog-section";
+        justify-content: center;
+        padding: 0px;
+        gap: 0px;
+    }
+    .blog-section{
+        display: grid;
+        grid-template-areas:
+        "shop-card shop-card";
+        justify-content: center;
+        align-items: center;
+    }
+    .blog-card{
+        width: 90%;
+        gap: 5px;
+        padding: 0px;
+        padding-bottom: 10px;
+    }
+    .blog-card img{
+        width: 80%;
+    }
+    .blog-card p{
+        width: 80%;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        font-size: 2.5vw;
+        font-family: 'Lora', serif;
+    }
+    .blog-button{
+        width: 90%;
+        background-color: #38150B;
+        font-size: 2.5vw;
+    }
+    .main-locations{
+        padding: 0px;
+    }
+    .location-card{
+        width: 80%;
+        height: 80vi;
+        padding: 0px;
+    }
+    .maps{
+        width: 90%;
+        height: 90%;
+    }
 }
 /**
 movil
 ***/
-@media (max-width: 360px){
+@media (max-width: 376px){
     header{
         padding: 0px;
+    }
+    .logo-index a img{
+        height: 70px;
     }
     .grid-container-index{
         background-position: -750px;
@@ -568,11 +620,8 @@ movil
         border-radius: 15px;
         color: #38150B;
     }
-    .about-us{
+    .title-page{
         font-size: 40px;
-    }
-    .about-text{
-        font-size: 15px;
     }
     .shop-section{
         grid-template-areas:
@@ -591,6 +640,36 @@ movil
     .shop-button{
         font-size: 15px;
         padding: 6px;
-        border-radius: 10px;
+    }
+    .blog-section{
+        grid-template-areas:
+        "shop-card";
+    }
+    .blog-card{
+        width: 90%;
+        gap: 5px;
+        padding: 0px;
+        padding-bottom: 10px;
+        padding-bottom: 25px;
+    }
+    .blog-card img{
+        width: 80%;
+        padding-top: 25px;
+    }
+    .blog-card p{
+        width: 80%;
+        font-size: 15px;
+    }
+    .blog-button{
+        font-size: 15px;
+    }
+    .location-card{
+        width: 80%;
+        height: 288px;
+        padding: 0px;
+    }
+    .maps{
+        width: 90%;
+        height: 90%;
     }
 }
